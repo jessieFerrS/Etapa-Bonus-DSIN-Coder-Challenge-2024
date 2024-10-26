@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Armazenamento das Naves</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="centro_armazenamento_naves.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Sidebar -->
+         
+        <div class="sidebar">
+            <div class="hamburger-menu" onclick="toggleSidebar()">&#9776;</div>
+            <h1 class="title">Naves🛸</h1>
+            <ul>
+                <a href="centro_armazenamento_naves.html"><li><i class="fa-solid fa-location-crosshairs"></i><span>Centro de Naves Capturadas</span></li></a>
+                <a href="registros_naves.html"><li><i class="fa-solid fa-folder"></i><span>Cadastrador de Naves</span></li></a>
+                <a href="analisador_patos.html"><li><i class="fa-solid fa-binoculars"></i><span>Analisador de Patos</span></li></a>
+                <a href="index.html"><li><i class="fa-solid fa-arrows-up-down-left-right"></i><span>Comando Central</span></li></a>
+            </ul>
+        </div>
+        <!-- Ícone de controle de áudio -->
+        <div class="audio-icon" id="audioControl">
+            <i class="fas fa-volume-up"></i> <!-- Ícone de volume -->
+        </div>
+
+        <!-- Elemento de áudio -->
+        <audio id="backgroundAudio" src="audio/alien-device-start-work-stop(nave-page).mp3" loop></audio>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Naves Catalogadas</h1>
+                <div class="filter-container">
+                    <select id="classification-filter">
+                        <option value="" disabled selected>Categoria de Naves</option>
+                        <option value="Sucata Espacial">Sucata Espacial</option>
+                        <option value="Arsenal Alienígena">Arsenal Alienígena</option>
+                        <option value="Ameaça em Potencial">Ameaça em Potencial</option>
+                        <option value="Fonte de Energia Alternativa">Fonte de Energia Alternativa</option>
+                        <option value="Jóia Tecnológica">Jóia Tecnológica</option>
+                        <option value="Corre que vai dar ruim!">Corre que vai dar ruim!</option>
+                        <option value="Classificação Indefinida">Classificação Indefinida</option>
+                    </select>
+            </div>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tamanho</th>
+                        <th>Cor</th>
+                        <th>Localização</th>
+                        <th>Armamento</th>
+                        <th>Combustível</th>
+                        <th>Avaria</th>
+                        <th>Tecnologia</th>
+                        <th>Periculosidade</th>
+                        <th>Qtd. Tripulantes</th>
+                        <th>Status Tripulantes</th>
+                        <th>Classificação</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                
+                <tbody id="spaceship-list"></tbody>
+            </table>
+        </div>
+    </div>
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="editTitle">👀Editar Itens👀</h2>
+            <p>Hey!Parece que você não prestou muita atenção na hora de cadastrar as naves, não é?!</p>
+            <p>Dá próxima vez preste mais atenção, nossa existência depende de você!;)</p>
+          
+          <!-- Formulário de Edição -->
+            <form id="editForm">
+                <div class="select-container">
+                    <select name="color" required>
+                        <option value="" disabled selected>Selecione a cor da nave</option>
+                        <option value="vermelha">Vermelha</option>
+                        <option value="laranja">Laranja</option>
+                        <option value="amarela">Amarela</option>
+                        <option value="verde">Verde</option>
+                        <option value="azul">Azul</option>
+                        <option value="anil">Anil</option>
+                        <option value="violeta">Violeta</option>
+                    </select>
+                    <select name="size" required>
+                        <option value="" disabled selected>Selecione o tamanho da nave</option>
+                        <option value="pequena">Pequena</option>
+                        <option value="média">Média</option>
+                        <option value="grande">Grande</option>
+                        <option value="colossal">Colossal</option>
+                    </select>
+                    <select name="location" required>
+                        <option value="" disabled selected>Selecione a localização da nave</option>
+                        <option value="áfrica">África</option>
+                        <option value="europa">Europa</option>
+                        <option value="américa">América</option>
+                        <option value="ásia">Ásia</option>
+                        <option value="oceania">Oceania</option>
+                        <option value="antártida">Antártica</option>
+                        <option value="oceano pacífico">Oceano Pacífico</option>
+                        <option value="oceano índico">Oceano Índico</option>
+                        <option value="oceano atlântico">Oceano Atlântico</option>
+                        <option value="oceano ártico">Oceano Ártico</option>
+                    </select>
+                    <select name="fuelType" required>
+                        <option value="" disabled selected>Selecione o tipo de combustível da nave</option>
+                        <option value="radiação eletromagnética">Radiação Eletromagnética</option>
+                        <option value="plasma estelar">Plasma Estelar</option>
+                        <option value="antimatéria">Antimatéria</option>
+                        <option value="biocombustível alien">Biocombustível Alien</option>
+                        <option value="energia nuclear">Energia Nuclear</option>
+                        <option value="neutrinos reversos">Neutrinos Reversos</option>
+                    </select>
+                    <select name="damageLevel" required>
+                        <option value="" disabled selected>Selecione o grau de avaria</option>
+                        <option value="perda total">Perda Total</option>
+                        <option value="muito destruída">Muito Destruída</option>
+                        <option value="parcialmente destruída">Parcialmente Destruída</option>
+                        <option value="praticamente intacta">Praticamente Intacta</option>
+                        <option value="sem avarias">Sem Avarias</option>
+                    </select>
+                    <select name="techProspect" required>
+                        <option value="" disabled selected>Selecione a tecnologia da nave</option>
+                        <option value="nulo">Nulo</option>
+                        <option value="baixo">Baixo</option>
+                        <option value="moderado">Moderado</option>
+                        <option value="avançado">Avançado</option>
+                        <option value="extremamente avançado">Extremamente Avançado</option>
+                        <option value="além da compreensão (hein?!)">Além da Compreensão(Hein?!)</option>
+                    </select>
+                    <select name="dangerLevel" required class="full-width">
+                        <option value="" disabled selected>Selecione o grau de Periculosidade da Nave</option>
+                        <option value="inofensivo">Inofensivo</option>
+                        <option value="moderado">Moderado</option>
+                        <option value="alto">Alto</option>
+                        <option value="extremo">Extremo</option>
+                        <option value="crítico">Crítico</option>
+                    </select>
+                </div>
+                <div class="input-container-form">
+                    <input type="number" id="number_staff" name="crew.number" placeholder="Numero de Tripulantes"  min="0" value="" class="form-input">
+                    <input type="text" id="status_staff" name="crew.status" placeholder="Descreva o estado dos tripulantes" class="form-input">
+                </div>
+                <!-- Checkboxes -->
+                <div name="weaponry" class="checkbox-container">
+                    <label><input type="checkbox" name="lança mísseis"> Lança Mísseis</label>
+                    <label><input type="checkbox" name="raios laser"> Raios Laser</label>
+                    <label><input type="checkbox" name="canhão de plasma"> Canhão de Plasma</label>
+                    <label><input type="checkbox" name="projéteis biológicos"> Projéteis Biológicos</label>
+                    <label><input type="checkbox" name="campo de contenção"> Campo de Contenção</label>
+                    <label><input type="checkbox" name="desintegrador"> Desintegrador</label>
+                    <label><input type="checkbox" name="manipulador da realidade"> Manipulador da Realidade</label>
+                    <label><input type="checkbox" name="escudo anti-ataque"> Escudo Anti-Ataque</label>
+                    <label><input type="checkbox" name="detector de inimigos"> Detector de Inimigos</label>
+                </div>
+
+                <!-- Botões -->
+                <div class="button-container">
+                    <button type="submit" id="alterarDadosBtn">Alterar Dados</button>
+                    <button type="button" id="cancelBtn" class="cancel">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal de Confirmação para Exclusão -->
+    <div id="deleteModal" class="modal-delete">
+        <div class="modal-content-delete">
+            <h2>👀Psss! Você tem certeza que já analisou essa nave o suficiente para enviar para o desmanche e obter itens valiosos para a nossa sobrevivência?Nem tudo é só Sucata Espacial!🚨🛸</h2>
+            <div class="button-container-delete">
+                <button id="confirmDeleteBtn">Sim</button>
+                <button id="cancelDeleteBtn" class="cancel">Não</button>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <div id="alert-message" class="alert-message hidden">
+        <div class="message-content">
+            <h2>😱Nenhuma nave com essa classificação encontrada!😱</h2>
+            <button id="ok-button">OK</button>
+        </div> 
+    </div>
+
+    
+    <script src="centro_armazenamento_naves.js"></script>
+    
+</body>
+</html>

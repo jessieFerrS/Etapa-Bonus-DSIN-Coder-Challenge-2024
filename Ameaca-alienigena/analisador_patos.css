@@ -1,0 +1,493 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #001a00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  height: 150vh;
+  margin: 50px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 400px; 
+  height: 380px; /* Altura fixa para simular o comprimento do joystick */
+  background-color: rgba(255, 255, 0, 0.2);
+  padding: 20px;
+  border-radius: 20px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  position: relative;
+  --background: linear-gradient(145deg, #00b347, #007a29);
+  animation: walk 1s infinite alternate;
+    
+}
+
+@keyframes walk {
+  0% {
+      transform: translateY(0); /* Posição inicial */
+  }
+  100% {
+      transform: translateY(-10px); /* Simula um pequeno movimento para cima */
+  }
+}
+
+
+/* Adicionando as alças laterais */
+.container::before, .container::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 120px; /* Altura da alça */
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+  background-color: #333;
+}
+
+.container::before {
+  left: -10px; 
+  height: 200px; 
+}
+
+.container::after {
+  right: -10px; 
+  height: 200px; 
+}
+
+.processing-container{
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 20px; 
+}
+
+.processing-box, .submit-container {
+  flex-grow: 1; /* Faz ambos os contêineres crescerem igualmente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.processing-box {
+  width: 100%; 
+  height: 50px; 
+  white-space: nowrap; 
+  overflow: hidden; 
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  background-color: #ccff66;
+  text-align: center;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-bottom: 0;
+  box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+  animation: pulse 1.5s infinite;
+  font-size: 14px;
+}
+
+/* Animação de luz pulsante */
+@keyframes pulse {
+  0% {
+      box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
+  }
+  50% {
+      box-shadow: 0 0 30px rgba(255, 255, 0, 0.6); /* Luz mais intensa no meio da animação */
+  }
+  100% {
+      box-shadow: 0 0 10px rgba(255, 255, 0, 0.2);
+  }
+}
+
+.submit-button {
+  background-color: rgba(255, 255, 0, 0.2); 
+  color: rgb(19, 19, 19); 
+  border: none; 
+  padding: 18px 20px; 
+  cursor: pointer; 
+  transition: background-color 0.3s; 
+  border-radius: 10px;
+  font-size: 14px;
+  width: 100%; 
+  text-align: center;
+    
+}
+
+.submit-button:active {
+  box-shadow: none; /* Remove a sombra ao clicar para simular pressão */
+  transform: translateY(4px); /* Move o botão um pouco para baixo para o efeito pressionado */
+}
+
+.dropdowns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+
+select {
+  padding: 5px;
+  width: 100px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra para os dropdowns */
+  transition: all 0.2s ease-in-out; /* Transição suave ao interagir */
+  background-color:rgba(255, 255, 0, 0.2);
+  border: none;
+}
+
+option:checked {
+  background-color: rgba(255, 255, 0, 0.2);
+  color: #fff;
+}
+
+select:hover {
+  transform: scale(1.05); 
+  cursor: pointer;
+}
+
+.checkboxes {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px; 
+  margin: 0;
+}
+
+.checkboxes label {
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.checkboxes label:hover {
+  transform: scale(1.05); /* Zoom nos checkboxes */
+}
+
+.number-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; 
+}
+
+.number-buttons button {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 0, 0.2);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para o efeito de botão elevado */
+  transition: all 0.2s ease-in-out;
+}
+
+.number-buttons button:active {
+  box-shadow: none; /* Remove a sombra ao clicar para simular pressão */
+  transform: translateY(4px); /* Move o botão um pouco para baixo para o efeito pressionado */
+}
+
+.number-buttons button:hover {
+  background-color: #003300;
+  transform: scale(1.1); /* Efeito de aumentar ao passar o mouse */
+}
+
+.number-buttons .clear-btn {
+  background-color: #333;
+}
+
+#flockSizeBox {
+  display: flex;
+  width: 70px; /* Largura fixa */
+  height: 30px;
+  padding: 2px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #ccff66;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  overflow-x: hidden; 
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes blinkCursor {
+  50% {
+      border-right-color: transparent;
+  }
+}
+
+#processingText {
+  display: inline-block;
+  font-family: monospace; 
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid black; /* Barra de digitação (cursor) */
+  animation: blinkCursor 0.7s steps(1) infinite;
+}
+
+/*ESTILOS DO ÓCULOS DE VISÃO NOTURNA*/
+  
+#glasses {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  align-items: center;
+  width: 90vw;
+  color: #00ff00;
+}
+
+.lens {
+  position: relative;
+  width: 40vw;
+  height: 70vh;
+  background: radial-gradient(circle at center, #0a6f0a 0%, #001a00 80%);
+  border: 5px solid #00ff00;
+  border-radius: 30%;
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+.left-lens {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.right-lens {
+  margin-left: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+#duckText {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #00ff00;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.duck-info p {
+  margin: 10px 0;
+}
+
+#duckData {
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.5;
+  text-shadow: 0 0 5px #00ff00;
+}
+
+.ducks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 5px;
+  justify-content: space-around; /* Distribui os patos uniformemente */
+  align-items: center;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+.duck {
+  background-size: cover;
+  width: 60px;
+  height: auto;
+  transform: scale(1.2);
+  filter: blur(2px);
+  animation: moveDuck 8s infinite alternate; /* Animação suave */
+}
+
+/* Estilo do crosshair com dois círculos */
+.crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle {
+  position: absolute;
+  border: 3px solid #00ff00;
+  border-radius: 50%;
+  animation: zoomEffect 2s infinite;
+}
+
+.outer-circle {
+  width: 80px;
+  height: 80px;
+}
+
+.inner-circle {
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.blinking-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #00ff00;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+/* Animação dos pontos piscando */
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Animação de zoom in/zoom out no crosshair(Alvo) */
+@keyframes zoomEffect {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes moveDuck {
+  0% {
+    transform: translateX(0) scale(1.3);
+  }
+  50% {
+    transform: translateX(-20px) scale(1.2); /* Move para cima */
+  }
+  100% {
+    transform: translateX(0) scale(1.2); /* Retorna à posição original */
+  }
+}
+  
+.arrow-down {
+  position: fixed;
+  bottom: 20px; 
+  right: 20px; 
+  cursor: pointer; 
+  display: inline-block; 
+}
+
+.arrow-up-down {
+  position: fixed;
+  bottom: 20px; 
+  left: 20px; 
+  cursor: pointer;
+  display: inline-block; 
+}
+
+
+.tooltip {
+  visibility: hidden;
+  color: #fff; 
+  background-color: rgba(0, 0, 0, 0.7); 
+  text-align: left; 
+  border-radius: 4px; 
+  padding: 10px; 
+  position: absolute; 
+  z-index: 1; 
+  bottom: 100%; 
+  right: 50%; 
+  transform: translateY(-1%); 
+  margin-right: 10px; 
+  transition: visibility 0s, opacity 0.5s; 
+  opacity: 0;
+}
+
+.tooltip-up-down {
+  visibility: hidden;
+  color: #fff; 
+  background-color: rgba(0, 0, 0, 0.7); 
+  text-align: right; 
+  border-radius: 4px; 
+  padding: 10px; 
+  position: absolute; 
+  z-index: 1; 
+  left: 100%; 
+  top: 50%; 
+  transform: translateY(-50%); 
+  margin-left: 10px; 
+  transition: visibility 0s, opacity 0.5s; /* Efeito suave */
+  opacity: 0; 
+}
+
+/* Exibe o tooltip quando o ícone é hover */
+.arrow-down:hover .tooltip, .arrow-up-down:hover .tooltip-up-down {
+  visibility: visible; 
+  opacity: 1; 
+}
+
+.arrow-down i, .arrow-up-down i {
+  color: #ccff66; 
+  font-size: 36px; 
+  
+}
+
+/* Ícone de áudio */
+.audio-icon {
+  position: relative;
+  top: -500px;
+  right: -20px;
+  height: 100px;
+  font-size: 30px;
+  color: #00ff00;
+  cursor: pointer;
+  animation: pulseEffect 1.5s infinite; /* Animação de pulsar */
+}
+
+/* Animação de pulsar (efeito do icone de audio)*/
+@keyframes pulseEffect {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+

@@ -1,0 +1,592 @@
+@import url('https://fonts.cdnfonts.com/css/devil-breeze');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+@import url('https://fonts.cdnfonts.com/css/bimbo');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #1B1B1B;
+}
+
+h1 {
+    font-family: "devil breeze";
+    color: #b7ec09;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+
+h1:hover {
+    transform: rotate(45deg); /* Rotaciona o H1 em 180 graus (de cabeça para baixo) */
+}
+
+a {
+    text-decoration: none;
+}
+
+.title {
+    font-family: "devil breeze";
+    font-size: 18px;
+    margin: 10px;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+
+.sidebar {
+    width: 200px;
+    background-color: #b7ec09;
+    padding-top: 20px;
+    transition: width 0.3s ease; /*transição suave para a retração*/
+}
+
+.sidebar.retracted {
+    width: 60px; /* Largura quando retraída */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+.sidebar ul li {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    
+}
+
+.sidebar ul li span {
+    display: inline-block;
+    margin-left: 10px; 
+    
+}
+
+.sidebar.retracted ul li span {
+    display: none; /* Esconde o texto quando a sidebar estiver retraída */
+}
+
+
+.hamburger-menu {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    padding: 15px;
+}
+
+.sidebar.retracted + .main-content {
+    margin-left: 60px; /* Ajusta a margem do conteúdo principal quando a sidebar estiver retraída */
+}
+
+.main-content {
+    width: 100%;
+    max-height: 600px; 
+    overflow-x: auto;  /* Permite rolagem horizontal se necessário */
+    overflow-y: auto;  /* Permite rolagem vertical */
+    margin-top: 20px;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 60px; /* Sidebar retraída em dispositivos menores */
+    }
+
+    .sidebar h1 {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: block; /* Exibe o ícone do menu hamburguer em dispositivos menores */
+    }
+
+    .sidebar ul li span {
+        display: none; /* Esconde o texto na sidebar por padrão em dispositivos menores */
+    }
+
+    .sidebar.expanded ul li span {
+        display: inline-block; /* Mostra o texto da sidebar quando expandida */
+    }
+
+    .sidebar.expanded {
+        width: 200px; /* Expande a sidebar quando o menu hamburguer for clicado */
+    }
+
+    .header {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .header input {
+        width: 100%; 
+        margin-top: 10px; 
+    }
+}
+
+.sidebar ul li i {
+    margin-right: 10px; 
+    font-size: 18px; 
+    color: #fff; 
+    
+
+}
+
+.sidebar ul li.active {
+    color: white;
+    background-color: #3a3b51;
+    
+}
+
+.sidebar ul li.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #181819;
+    
+}
+
+.sidebar ul li:hover {
+    background-color: #1B1B1B;
+    color: #fff;
+}
+
+.sidebar ul li:hover::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #ffffff;
+    
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header input {
+    padding: 10px;
+    width: 200px;
+    border: 2px solid black;
+}
+
+
+select {
+    width: 100%;
+    padding: 10px;
+    background-color: #121111; /* Cor de fundo dos selects */
+    color: #fff; /* Cor do texto dos selects */
+    border: 1px solid #d1ff48; /* Borda personalizada */
+    border-radius: 4px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow-x: auto;
+    display: table;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Cria colunas que se ajustam dinamicamente */
+    
+}
+
+thead th {
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #b7ec09; 
+}
+
+th, td {
+    padding: 15px;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    border-bottom: 1px solid #b7ec09; 
+    border-left: none;
+    border-right: none;
+    white-space: nowrap; 
+    overflow: hidden; 
+    
+}
+
+td:nth-child(4) {
+    white-space: normal; /* Permite quebra de linha para o conteúdo */
+}
+
+td {
+    word-wrap: break-word; /* Força a quebra de palavra para ajustar o conteúdo */
+}
+
+
+td:nth-child(4), th:nth-child(4) { 
+    max-width: 150px; 
+}
+
+/* Responsividade para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .main-content {
+        overflow-x: auto; /* Permite rolagem horizontal na tabela */
+    }
+
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        white-space: nowrap; /* Mantém o conteúdo em uma linha e permite rolagem horizontal */
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    th, td {
+        white-space: nowrap; /* Garante que as células não quebrem linha */
+    }
+}
+
+
+
+tbody tr:nth-child(even) {
+    background-color: #040404;
+}
+
+input[type="text"] {
+    padding: 10px;
+    background-color: #7b9d13;
+    color: #0c0c0c;
+    border: 1px solid #d1ff48;
+    border-radius: 4px;
+}
+
+.actions {
+    justify-content: center;
+}
+
+.actions button {
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    margin: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 60px;
+    margin-top: 5px;
+    font-family: "devil breeze";
+    font-size: 10px;
+    font-weight: bold;
+    color: #433838;
+}
+
+.delete-button {
+    color: #333;
+    background-color: #ec2112;
+}
+
+.edit-button {
+    color: #333;
+    background-color: #d1ff48;
+}
+
+.actions button:hover {
+    background-color: #635a5a;
+}
+
+.alert-message button {
+    animation: none; 
+    background-color: #faf600fe;
+    border: none;
+    color: #222;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+  }
+
+  .alert-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(236, 236, 83, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    
+}
+
+.message-content {
+    background-color: rgba(130, 129, 129, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-family: 'devil-breeze';
+}
+
+.hidden{
+    display: none;
+}
+
+.header {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-container {
+    margin-top: 10px; 
+    width: 100%; 
+    display: flex;
+    justify-content: center; 
+}
+
+select {
+    width: 25%; 
+    padding: 10px;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #d1ff48;
+    border-radius: 4px;
+    text-align: start;
+}
+
+/*MODAL*/
+.modal {
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+  
+.modal-content {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #b3de32;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    max-width: 100%;
+    overflow-y: auto;
+    text-align: center;
+    margin: auto;  
+    transform: translateY(-50%);
+    top: 50%;
+    position: relative;
+}
+  
+/* Estilo para selects e inputs */
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #607a0f; 
+    color: #101010; 
+    background-color: #7b9d13; 
+}
+
+.form-input {
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #607a0f; 
+    border-radius: 5px;
+    background-color: #7b9d13; 
+    outline: none;
+    color: #7b9d13;
+    
+}
+
+.form-input::placeholder {
+    color: #090909; 
+    opacity: 1; 
+}
+
+
+.select-container, .input-container-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px; /* Espaçamento entre os selects */
+    margin-bottom: 10px;
+}
+  
+.select-container select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    flex: 1 1 calc(50% - 15px); /* Ajusta a largura para ocupar 50% menos a margem */
+}
+
+/* Select que ocupa 100% da largura */
+.select-container .full-width {
+    grid-column: span 2; /* Faz o select ocupar 2 colunas  */
+}
+ 
+  /* Container de checkboxes com duas colunas */
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+  
+.checkbox-container label {
+    width: 48%; /* Para fazer duas colunas */
+    margin-bottom: 10px;
+    text-align: left;
+}
+  
+  /* Botões */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+  
+.button-container button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+  
+.button-container .cancel {
+    background-color: #cd1407;
+    color: #ffff;
+}
+  
+.button-container button[type="submit"] {
+    background-color: #126915;
+    color: #ffff;
+}
+
+.editTitle {
+    font-family: 'devil breeze';
+}
+
+.close {
+    cursor: pointer;
+}
+
+/* Media queries para dispositivos menores */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%; /* Modal mais estreito para telas menores */
+    }
+    
+    
+    .select-container, .input-container-form {
+        grid-template-columns: 1fr; /* Apenas uma coluna */
+    }
+
+    form select {
+        width: 100%; 
+    }
+
+    .form-input {
+        width: 95%;
+    }
+    
+    .button-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .button-container button {
+        width: 100%; 
+        margin-bottom: 10px;
+    }
+}
+
+/*MODAL DELEÇÃO*/
+.modal-delete {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+}
+
+.modal-content-delete {
+    background-color: rgb(251, 182, 6);
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    margin: auto;
+    transform: translateY(-50%);
+    top: 50%;
+    position: relative;
+}
+
+.button-container-delete {
+    margin-top: 20px;
+}
+
+.button-container-delete button {
+    margin: 5px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel {
+    background-color: rgb(234, 37, 37);
+    color: #ffffff;
+}
+
+#confirmDeleteBtn {
+    background-color: rgb(1, 117, 1);
+    color: #ffffff;
+}
+
+/* Ícone de áudio */
+.audio-icon {
+    position: relative;
+    top: 20px;
+    right: -10px;
+    height: 100px;
+    font-size: 30px;
+    color: #ffffff;
+    cursor: pointer;
+}
+  

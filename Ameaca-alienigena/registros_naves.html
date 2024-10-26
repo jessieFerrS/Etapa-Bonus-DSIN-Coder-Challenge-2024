@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Naves Alienígenas</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="registros_naves.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="form">
+            <h1>Cadastro de Naves Alienígenas</h1>
+
+            <div class="input-grid">
+                <select id="size-select" required>
+                    <option value="" disabled selected>Selecione o tamanho da nave</option>
+                    <option value="pequena">Pequena</option>
+                    <option value="média">Média</option>
+                    <option value="grande">Grande</option>
+                    <option value="colossal">Colossal</option>
+                </select>
+                <input type="number" id="crew-number" name="number_staff" placeholder="Numero de Tripulantes"  min="0" value="">
+                <input type="text" id="crew-status" name="status_staff" placeholder="Descreva o estado dos tripulantes">
+                <select id="color-select" required>
+                    <option value="" disabled selected>Selecione a cor da nave</option>
+                    <option value="vermelha">Vermelha</option>
+                    <option value="laranja">Laranja</option>
+                    <option value="amarela">Amarela</option>
+                    <option value="verde">Verde</option>
+                    <option value="azul">Azul</option>
+                    <option value="anil">Anil</option>
+                    <option value="violeta">Violeta</option>
+                </select>
+                <select id="fuel-type-select" required>
+                    <option value="" disabled selected>Selecione o tipo de combustível</option>
+                    <option value="radiação eletromagnética">Radiação Eletromagnética</option>
+                    <option value="plasma estelar">Plasma Estelar</option>
+                    <option value="antimatéria">Antimatéria</option>
+                    <option value="biocombustível alien">Biocombustível Alien</option>
+                    <option value="energia nuclear">Energia Nuclear</option>
+                    <option value="neutrinos reversos">Neutrinos Reversos</option>
+                </select>
+                <select id="damage-level-select" required>
+                    <option value="" disabled selected>Selecione a avaria da nave</option>
+                    <option value="perda total">Perda Total</option>
+                    <option value="muito destruída">Muito Destruída</option>
+                    <option value="parcialmente destruída">Parcialmente Destruída</option>
+                    <option value="praticamente intacta">Praticamente Intacta</option>
+                    <option value="sem avarias">Sem Avarias</option>
+                </select>
+                <select id="tech-prospect-select" required>
+                    <option value="" disabled selected>Selecione o grau tecnologico da nave</option>
+                    <option value="nulo">Nulo</option>
+                    <option value="baixo">Baixo</option>
+                    <option value="moderado">Moderado</option>
+                    <option value="avançado">Avançado</option>
+                    <option value="extremamente avançado">Extremamente Avançado</option>
+                    <option value="além da compreensão (hein?!)">Além da Compreensão (Hein?!)</option>
+                </select>
+                <select id="danger-level-select" required>
+                    <option value="" disabled selected>Selecione o nível de periculosidade da nave</option>
+                    <option value="inofensivo">Inofensivo</option>
+                    <option value="moderado">Moderado</option>
+                    <option value="alto">Alto</option>
+                    <option value="extremo">Extremo</option>
+                    <option value="crítico">Crítico</option>
+                </select>
+            </div>
+
+            <div class="long-input">
+                <select id="crash-location-select" required>
+                    <option value="" disabled selected>Selecione o local em que a nave foi encontrada</option>
+                    <option value="áfrica">África</option>
+                    <option value="ásia">Ásia</option>
+                    <option value="europa">Europa</option>
+                    <option value="américa">América</option>
+                    <option value="oceania">Oceania</option>
+                    <option value="antártida">Antártida</option>
+                    <option value="oceano pacífico">Oceano Pacífico</option>
+                    <option value="oceano atlântico">Oceano Atlântico</option>
+                    <option value="oceano índico">Oceano Índico</option>
+                    <option value="oceano ártico">Oceano Ártico</option>
+                </select>
+            </div>
+
+            <h3>Equipamentos de Ataque e Defesa</h3>
+
+            <div class="checkbox-grid">
+                <label><input type="checkbox"> Lança Mísseis</label>
+                <label><input type="checkbox"> Raios Laser</label>
+                <label><input type="checkbox"> Canhão de Plasma</label>
+                <label><input type="checkbox"> Projéteis Biológicos</label>
+                <label><input type="checkbox"> Campo de Contenção</label>
+                <label><input type="checkbox"> Desintegrador</label>
+                <label><input type="checkbox"> Manipulador da Realidade</label>
+                <label><input type="checkbox"> Escudo Anti-Ataque</label>
+                <label><input type="checkbox"> Detector de Inimigos</label>
+            </div>
+
+            <button type="submit" id="submit-button">ENVIAR DADOS</button>
+        </div>
+    </div>
+    <div id="success-message" class="success-message hidden">
+        <div class="message-content">
+            <h2>Dados da Nave salvos com sucesso!</h2>
+            <p>Vá para a central de armazenamento das naves registradas ou volte para a tela inicial.</p>
+            <button id="go-home-button">Ir para a página inicial</button>
+            <button id="stay">Cancelar</button>
+            <button id="go-storage-button">Ir para a central de armazenamento</button>
+        </div>
+    </div>
+
+    <!-- Ícone de controle de áudio -->
+    <div class="audio-icon" id="audioControl">
+        <i class="fas fa-volume-up"></i> <!-- Ícone de volume -->
+    </div>
+
+    <!-- Elemento de áudio -->
+    <audio id="backgroundAudio" src="audio/alien-device-start-work-stop(nave-page).mp3" loop></audio>
+
+    <div id="alert-message" class="alert-message hidden">
+        <div class="message-content">
+            <h2>🚨Alerta vermelho!🚨</h2>
+            <p>Você esqueceu de preencher algum campo!</p>
+            <button id="ok-button">OK</button>
+        </div> 
+    </div>
+    <script src="registros_naves.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processando Dados</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="analisador_patos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="main-container">
+    <!--SESSÃO ÓCULOS DE VISÃO NOTURNA-->
+        <div id="glasses">
+            <div class="lens left-lens">
+                <div class="ducks" id="duckContainer"></div> <!-- Container para os patos -->
+                <div class="crosshair">
+                    <!-- Dois círculos no crosshair -->
+                    <div class="circle outer-circle"></div>
+                    <div class="circle inner-circle"></div>
+                    <!-- Ponto piscando ao redor -->
+                    <div class="blinking-dot" style="top: 20%; left: 50%;"></div>
+                    <div class="blinking-dot" style="top: 50%; left: 20%;"></div>
+                    <div class="blinking-dot" style="top: 50%; left: 80%;"></div>
+                    <div class="blinking-dot" style="top: 80%; left: 50%;"></div>
+                </div>
+                <div class="duck-info" id="duckInfoRight">
+                    <p id="duckText">...Observando...</p>
+                </div>
+            </div>
+            <div class="lens right-lens">
+                <div id="duckData"></div>
+            </div>
+        </div>
+        <!--SESSÃO CONTROLE REMOTO-->
+        <div class="container">
+            <div class="processing-container">
+                <div class="processing-box">
+                    <p id="processingText">Processando os dados...</p>
+                </div>
+                <div class="submit-container">
+                    <button class="submit-button">Enviar</button>
+                </div>
+            </div>
+            <div class="dropdowns">
+                <div class="dropdown">
+                    <label for="cor">Cor</label>
+                    <select id="cor">
+                        <option value="esverdeada">Esverdeada</option>
+                        <option value="padrão">Padrão</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <p>Tamanho do Bando</p>
+                    <div id="flockSizeBox" class="flock-size-box">0</div> <!-- Caixa onde será exibido o número -->
+                </div>       
+                <div class="dropdown">
+                    <label for="tamanho-bico">Tamanho do Bico</label>
+                    <select id="tamanho-bico">
+                        <option value="pequeno">Pequeno</option>
+                        <option value="médio">Médio</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <label for="localizacao">Localização</label>
+                    <select id="localizacao">
+                        <option value="lagoa">Lagoa</option>
+                        <option value="lago">Lago</option>
+                        <option value="oceano">Oceano</option>
+                        <option value="parque">Parque</option>
+                        <option value="quintal">Quintal</option>
+                        <option value="parque tecnológico">Parque Tecnológico</option>
+                        <option value="área industrial">Área Industrial</option>
+                        <option value="data center">Data Center</option>
+                        <option value="campo aberto">Campo Aberto</option>
+                        <option value="túnel estreito">Túnel Estreito</option>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <label for="sotaque">Sotaque</label>
+                    <select id="sotaque">
+                        <option value="padrão">Padrão</option>
+                        <option value="alienígena">Alienígena</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="checkboxes">
+                <label><input type="checkbox" name="status" value="nadando"> Nadando</label>
+                <label><input type="checkbox" name="status" value="voando"> Voando</label>
+                <label><input type="checkbox" name="status" value="se alimentando"> Se Alimentando</label>
+                <label><input type="checkbox" name="status" value="não se alimenta"> Não se Alimenta</label>
+                <label><input type="checkbox" name="status" value="manipula eletrônicos"> Manipula Eletrônicos</label>
+                <label><input type="checkbox" name="status" value="monitora humanos"> Monitora Humanos</label>
+                <label><input type="checkbox" name="status" value="comunicação diferente"> Comunicação Diferente</label>
+            </div>
+
+            <div class="number-buttons">
+                <button class="clear-btn">C</button>
+                <button class="number-btn">0</button>
+                <button class="number-btn">1</button>
+                <button class="number-btn">2</button>
+                <button class="number-btn">3</button>
+                <button class="number-btn">4</button>
+                <button class="number-btn">5</button>
+                <button class="number-btn">6</button>
+                <button class="number-btn">7</button>
+                <button class="number-btn">8</button>
+                <button class="number-btn">9</button>  
+            </div>
+        </div>
+    </div>
+    <!-- Ícone de controle de áudio -->
+    <div class="audio-icon" id="audioControl">
+        <i class="fas fa-volume-up"></i> <!-- Ícone de volume -->
+    </div>
+
+    <!-- Elemento de áudio -->
+    <audio id="backgroundAudio" src="audio/mix_audio_observation_08s.mp3" loop></audio>
+
+    <a href="centro_armazenamento_naves.html">
+        <div class="arrow-down">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <span class="tooltip">Centro de Naves Capturadas</span>
+        </div>
+    <a href="index.html">
+        <div class="arrow-up-down">
+            <i class="fa-solid fa-arrows-up-down-left-right"></i>
+            <span class="tooltip-up-down">Comando Central</span>
+        </div>
+    </a>
+     
+    <script src="analisador_patos.js"></script>
+</body>
+</html>
