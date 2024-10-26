@@ -15,7 +15,7 @@ Antes de começar, certifique-se de ter instalado em seu sistema:
 1. Clone este repositório:
 
 ```
-git clone https://github.com/MEUNOME/NOMEDOREPOSITORIO.git
+git clone https://github.com/jessieFerrS/Etapa-Bonus-DSIN-Coder-Challenge-2024.git
 ```
 
 2. Acesse o diretório do projeto:
@@ -24,7 +24,8 @@ git clone https://github.com/MEUNOME/NOMEDOREPOSITORIO.git
 cd api_missao_alienigena
 ```
 3. Crie uma arquivo dotenv(.env)
-obs.: Caso você não tenha o dotenv instalado em sua máquina, no command prompt digite o comando `npm install dotenv`. E crie o arquivo dotenv.
+
+📌 Caso você não tenha o dotenv instalado em sua máquina, no command prompt digite o comando `npm install dotenv`. E crie o arquivo dotenv.
 Nesse arquivo deve conter as seguintes variáveis:
 
 ```
