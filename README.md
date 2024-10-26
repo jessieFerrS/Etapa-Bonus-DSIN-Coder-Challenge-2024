@@ -90,7 +90,7 @@ Foi a competição mais legal que esse time já participou, com esse desafio apr
 - Buscar o MVP(Minimum Viable Project) e depois aprimorar o que foi feito buscando sempre aperfeiçoar e entregar o melhor.
 
 ### Integrantes do desenvolvimento desse projeto
-Aqui estão os github dos colaboradores desse projeto:
+Aqui estão os githubs dos colaboradores desse projeto:
 - [Caroline Ferreira](https://github.com/CarolFerr)
 - [Jéssica Ferreira](https://github.com/jessieFerrS)
 
