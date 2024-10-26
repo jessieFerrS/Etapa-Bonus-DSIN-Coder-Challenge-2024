@@ -4,7 +4,7 @@
 Na parte Client a aplicação foi desenvolvida em HTML5, CSS3 e JavaScript Puro, já do lado do Servidor, foi desenvolvida uma API em NodeJS e o banco de dados MongoDB(Atlas), sendo o Axios a peça central que conecta a API ao frontend.
 
 ## Capturas de telas
-![Telas do Projeto]()
+![Telas do Projeto](https://github.com/jessieFerrS/Etapa-Bonus-DSIN-Coder-Challenge-2024/blob/main/imagens/telas_do_projeto.png)
 
 O desenvolvimento se baseou nas Missões propostas, e segue abaixo o checklist de todas as implementações: 
 
