@@ -32,7 +32,9 @@ PORT=3000
 MONGO_URI=SUA_STRING_DE_CONEXÃO_MONGO*
 ```
 * **Lembre-se:** Você deve ter uma conta no MongoDB Atlas e nele você deve ir até o cluster e clicar em connect, onde aparecerá a seguinte tela:
-IMAGEM [!Imagem do mongodb para obter a string de conexão](url)
+  
+![Imagem do mongodb para obter a string de conexão](https://github.com/jessieFerrS/Etapa-Bonus-DSIN-Coder-Challenge-2024/blob/main/imagens/tela%20mongodb%20atlas.png)
+![Imagem do mongodb para obter onde encontrar sua string de conexão](https://github.com/jessieFerrS/Etapa-Bonus-DSIN-Coder-Challenge-2024/blob/main/imagens/onde%20encontrar%20string%20conexao%20do%20mongodb.png)
 
 Copie sua string de conexão e coloque o seu db_username e a sua db_password previamente cadastradas. Cole na variável MONGO_URI, já dita acima. 
 
