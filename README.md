@@ -3,11 +3,8 @@
 ## A Ameaça de Outro Mundo
 Na parte Client a aplicação foi desenvolvida em HTML5, CSS3 e JavaScript Puro, já do lado do Servidor, foi desenvolvida uma API em NodeJS e o banco de dados MongoDB(Atlas), sendo o Axios a peça central que conecta a API ao frontend.
 
-## Vídeo do projeto
-[!link do video]()
-
 ## Capturas de telas
-[!link das imagens]()
+![Telas do Projeto](https://github.com/jessieFerrS/Etapa-Bonus-DSIN-Coder-Challenge-2024/blob/main/imagens/telas_do_projeto.png)
 
 O desenvolvimento se baseou nas Missões propostas, e segue abaixo o checklist de todas as implementações: 
 
@@ -41,7 +38,7 @@ Sendo as classificações, as seguintes:
 - [x]  Classificação Indefinida: As vezes parece que é algo extraordinário e nunca visto, as vezes mais uma sucata e outros momentos uma fonte alternativa, mas afinal qual o seu potencial? Até agora nenhum sistema foi capaz de predizer🤔🤔.
 
 >📌*Importante*: Os critérios utilizados na classificação estão documentados na API 👇🏾👇🏽.
->> Link da documentação da API NodeJS: []()
+>> Link da documentação da API NodeJS: [README da API Construída em Node.js para o Desafio da Etapa Bônus do DSIN - CODER CHALLENGE](https://github.com/jessieFerrS/Etapa-Bonus-DSIN-Coder-Challenge-2024/blob/main/api_missao_alienigena/README.md)
 
 A página `Centro de Naves Capturadas` tem um `menu` que leva o usuário a percorrer toda a aplicação, nessa página o usuário pode `filtrar` por `classificação as naves`, ou seja, há um seletor que permite retornar um tipo específico de nave que se desejar verificar e quando não houver nenhum tipo cadastrado uma mensagem será emitida.
 
