@@ -82,7 +82,7 @@ function generateDucks(flockSize) {
 
   for (let i = 0; i < flockSize; i++) {
     const duckImg = document.createElement('img');
-    duckImg.src = 'img/pato.png';
+    duckImg.src = '../img/pato.png';
     duckImg.classList.add('duck');
     duckImg.alt = 'Pato Alienígena';
 
