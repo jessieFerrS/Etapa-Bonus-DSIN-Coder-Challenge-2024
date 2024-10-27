@@ -71,11 +71,20 @@ Como essa aplicação foi desenvolida, com HTML5, CSS3 e JavaScript e não foi u
 ```
 cd api_missao_alienigena
 ```
-Uma vez dentro do diretório, digite o comando:
+Uma vez dentro do diretório, digite o comando para instalar as dependências:
 ```
-node server.js
+npm install express mongoose swagger-jsdoc swagger-ui-express dotenv
 ```
-- Após isso a API estará disponível em `http://localhost:3000/api-docs`
+Crie um arquivo dotenv(.env) com sua string de conexão do mongodb e a porta:
+```
+PORT=3000
+MONGO_URL=SUA_STRING_DE_CONEXÃO_MONGO
+```
+Após isso é agora digite o comando para rodar a aplicação:
+```
+node index.js
+```
+- Após isso a API estará disponível em `http://localhost:3000/api-docs` e você já pode abrir o arquivo index.html no navegador e começar a "operação patolígena"😁🫨😬.
 
 >📌*Fica a Dica*: Não esquece de consultar a documentação da API lá em cima caso tenha alguma dúvida e de se conectar no MongoDB Atlas.
 
