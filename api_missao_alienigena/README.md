@@ -23,9 +23,11 @@ git clone https://github.com/jessieFerrS/Etapa-Bonus-DSIN-Coder-Challenge-2024.g
 ```
 cd api_missao_alienigena
 ```
-3. Crie uma arquivo dotenv(.env)
-
-📌 Caso você não tenha o dotenv instalado em sua máquina, no command prompt digite o comando `npm install dotenv`. E crie o arquivo dotenv.
+3. Instale as dependências
+```
+npm install express mongoose swagger-jsdoc swagger-ui-express dotenv
+```
+4. Crie uma arquivo dotenv(.env)
 Nesse arquivo deve conter as seguintes variáveis:
 
 ```
@@ -39,18 +41,18 @@ MONGO_URI=SUA_STRING_DE_CONEXÃO_MONGO*
 
 Copie sua string de conexão e coloque o seu db_username e a sua db_password previamente cadastradas. Cole na variável MONGO_URI, já dita acima. 
 
-4. Agora é só rodar o seguinte comando no command prompt do VSCODE ou no editor de sua preferência, lembrando que toda a criação do projeto e seus testes foram desenvolvidos no VSCODE.
+5. Agora é só rodar o seguinte comando no command prompt do VSCODE ou no editor de sua preferência, lembrando que toda a criação do projeto e seus testes foram desenvolvidos no VSCODE.
 ```
-node server.js
+node index.js
 ```
-Mas Olha👀: Caso enfrente alguma dificuldade talvez seja porque é necessário você instalar algumas dependências:
+Mas Olha👀: Caso enfrente alguma dificuldade talvez seja porque é necessário você ainda deva instalar algumas dependências:
 
 ```
 npm install express mongoose swagger-jsdoc swagger-ui-express
 ```
 
 ## Configuração
-Instale as dependências caso seja necessário.
+Instale as dependências.
 ```
 npm install express mongoose swagger-jsdoc swagger-ui-express dotenv
 ```
@@ -64,7 +66,7 @@ MONGO_URI=SUA_STRING_DE_CONEXÃO_MONGO
 ## Uso 
 Para rodar a API em ambiente de desenvolvimento, utilize o seguinte comando:
 ```
-node server.js
+node index.js
 ```
 
 A API estará disponível em `http://localhost:3000/api-docs`
@@ -209,6 +211,14 @@ Retorna as naves de acordo com as sua classificação. As naves podem ser classi
 - **Fonte de Energia Alternativa:** A nave possui um nível de dano parcialmente destruída, praticamente intacta ou sem avarias e combustível do tipo energia nuclear ou neutrinos reversos ou plasma estelar.
 - **Corre que vai dar muito ruim!:** A nave tem um nível de prospecção extremamente avançado ou além da compreensão (hein?), nível de perigo alto, extremo ou crítico e mais de 5 armas.🤯💨💨😱
 - **Classificação Indefinida:** A nave não se encaixa em nenhuma das classificações anteriores.
+Os critérios de classificação foram:
+- 'Sucata Espacial' se a prospecção tecnolgica for nula ou baixa e a nave estiver sem avarias;
+- 'Arsenal Alienígena' se a prospecção tecnológica for moderada ou avançada e possuir mais de um armamento;
+- 'Ameaça em Potencial' se a prospecção tecnológica for avançada, o nível de perigo for alto, extremo ou crítico e possuir mais de um armamento.
+- 'Fonte de Energia Alternativa' se o tipo de combustível for energia nuvlear, neutrinos reversos ou plasma estelar e o nível de avaria da nave for parcialmente destruída, praticamente intacta ou sem avarias;
+- 'Jóia Tecnológica' se a prospecção tecnológica for extremamente avançada ou além da compreensão(hein?!);
+- 'Corre que vaai da ruim!' se a prospecção tecnológica for extremamente avançada ou além da compreensão (hein?!) e a nave possuir mais de 5 armamentos e seu nível de perigo for alto, extremo ou crítico e o nível de avaria for sem avarias;
+- 'Classificação Indefinida' a nave não se encaixa em nenhum dos critérios anteriores.
 
 #### Resposta:
 ```
