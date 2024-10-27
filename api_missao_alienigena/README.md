@@ -32,7 +32,7 @@ Nesse arquivo deve conter as seguintes variáveis:
 
 ```
 PORT=3000
-MONGO_URI=SUA_STRING_DE_CONEXÃO_MONGO*
+MONGO_URL=SUA_STRING_DE_CONEXÃO_MONGO*
 ```
 * **Lembre-se:** Você deve ter uma conta no MongoDB Atlas e nele você deve ir até o cluster e clicar em connect, onde aparecerá a seguinte tela:
   
@@ -60,7 +60,7 @@ npm install express mongoose swagger-jsdoc swagger-ui-express dotenv
 Crie um arquivo `.env` na raiz do projeto e adicione as variáveis de ambiente necessárias. Lembre-se de colocar aqui sua string de conexão do MongoDb. Um exemplo de `.env`:
 ```
 PORT=3000
-MONGO_URI=SUA_STRING_DE_CONEXÃO_MONGO
+MONGO_URL=SUA_STRING_DE_CONEXÃO_MONGO
 ```
 
 ## Uso 
