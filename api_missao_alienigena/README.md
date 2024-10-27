@@ -211,14 +211,14 @@ Retorna as naves de acordo com as sua classificação. As naves podem ser classi
 - **Fonte de Energia Alternativa:** A nave possui um nível de dano parcialmente destruída, praticamente intacta ou sem avarias e combustível do tipo energia nuclear ou neutrinos reversos ou plasma estelar.
 - **Corre que vai dar muito ruim!:** A nave tem um nível de prospecção extremamente avançado ou além da compreensão (hein?), nível de perigo alto, extremo ou crítico e mais de 5 armas.🤯💨💨😱
 - **Classificação Indefinida:** A nave não se encaixa em nenhuma das classificações anteriores.
-Os critérios de classificação foram:
-- 'Sucata Espacial' se a prospecção tecnolgica for nula ou baixa e a nave estiver sem avarias;
-- 'Arsenal Alienígena' se a prospecção tecnológica for moderada ou avançada e possuir mais de um armamento;
-- 'Ameaça em Potencial' se a prospecção tecnológica for avançada, o nível de perigo for alto, extremo ou crítico e possuir mais de um armamento.
-- 'Fonte de Energia Alternativa' se o tipo de combustível for energia nuvlear, neutrinos reversos ou plasma estelar e o nível de avaria da nave for parcialmente destruída, praticamente intacta ou sem avarias;
-- 'Jóia Tecnológica' se a prospecção tecnológica for extremamente avançada ou além da compreensão(hein?!);
-- 'Corre que vaai da ruim!' se a prospecção tecnológica for extremamente avançada ou além da compreensão (hein?!) e a nave possuir mais de 5 armamentos e seu nível de perigo for alto, extremo ou crítico e o nível de avaria for sem avarias;
-- 'Classificação Indefinida' a nave não se encaixa em nenhum dos critérios anteriores.
+#### Os critérios de classificação foram:
+- *'Sucata Espacial'* se a prospecção tecnolgica for nula ou baixa e a nave estiver sem avarias;
+- *'Arsenal Alienígena'* se a prospecção tecnológica for moderada ou avançada e possuir mais de um armamento;
+- *'Ameaça em Potencial'* se a prospecção tecnológica for avançada, o nível de perigo for alto, extremo ou crítico e possuir mais de um armamento.
+- *'Fonte de Energia Alternativa'* se o tipo de combustível for energia nuclear, neutrinos reversos ou plasma estelar e o nível de avaria da nave for parcialmente destruída, praticamente intacta ou sem avarias;
+- *'Jóia Tecnológica'* se a prospecção tecnológica for extremamente avançada ou além da compreensão(hein?!);
+- *'Corre que vai da ruim!'* se a prospecção tecnológica for extremamente avançada ou além da compreensão (hein?!) e a nave possuir mais de 5 armamentos e seu nível de perigo for alto, extremo ou crítico e o nível de avaria for sem avarias;
+- *'Classificação Indefinida'* a nave não se encaixa em nenhum dos critérios anteriores.
 
 #### Resposta:
 ```
