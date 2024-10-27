@@ -37,7 +37,4 @@ app.listen(PORT, () => {
     console.log('Servidor rodando na porta 3000');
 });
 
-module.exports = (req, res) => {
-  res.send("Hello from the backend!");
-};
 
