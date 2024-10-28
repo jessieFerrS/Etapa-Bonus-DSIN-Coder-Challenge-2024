@@ -13,7 +13,7 @@ function spaceshipClassifier(spaceship) {
         classification = 'Ameaça em Potencial';
     } else if(['energia nuclear', 'neutrinos reversos', 'plasma estelar'].includes(spaceship.fuelType) && ['parcialmente destruída', 'praticamente intacta', 'sem avarias'].includes(spaceship.damageLevel)){
         classification = 'Fonte de Energia Alternativa';
-    } else if(spaceship.techProspect === 'extremamente avançado' || spaceship.techProspect === 'além da compreensão (hein?!)'){
+    } else if(spaceship.techProspect === 'extremamente avançado' && ['parcialmente destruída', 'praticamente intacta'].includes(spaceship.damageLevel)){
         classification = 'Jóia Tecnológica';
     } else if((spaceship.techProspect === 'extremamente avançado' || spaceship.techProspect === 'além da compreensão (hein?!)') && spaceship.weaponry.length > 5 && ['alto', 'extremo', 'crítico'].includes(spaceship.dangerLevel) && spaceship.damageLevel === 'sem avarias') {
         classification = 'Corre que vai dar ruim!';
