@@ -216,7 +216,7 @@ Retorna as naves de acordo com as sua classificação. As naves podem ser classi
 - *'Arsenal Alienígena'* se a prospecção tecnológica for moderada ou avançada e possuir mais de um armamento;
 - *'Ameaça em Potencial'* se a prospecção tecnológica for avançada, o nível de perigo for alto, extremo ou crítico e possuir mais de um armamento.
 - *'Fonte de Energia Alternativa'* se o tipo de combustível for energia nuclear, neutrinos reversos ou plasma estelar e o nível de avaria da nave for parcialmente destruída, praticamente intacta ou sem avarias;
-- *'Jóia Tecnológica'* se a prospecção tecnológica for extremamente avançada e nível de dano da nave for parcialmente destruída ou paraticamente intacta;
+- *'Jóia Tecnológica'* se a prospecção tecnológica for extremamente avançada e nível de dano da nave for parcialmente destruída ou praticamente intacta;
 - *'Corre que vai da ruim!'* se a prospecção tecnológica for extremamente avançada ou além da compreensão (hein?!) e a nave possuir mais de 5 armamentos e seu nível de perigo for alto, extremo ou crítico e o nível de avaria for sem avarias;
 - *'Classificação Indefinida'* a nave não se encaixa em nenhum dos critérios anteriores.
 
